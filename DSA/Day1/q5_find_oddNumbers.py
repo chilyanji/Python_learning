@@ -1,0 +1,8 @@
+numbers = [1, 2, 3, 4, 5, 6]
+
+odd = 0
+for num in numbers:
+    if num % 2 != 0:
+        odd += 1
+
+print(odd)
