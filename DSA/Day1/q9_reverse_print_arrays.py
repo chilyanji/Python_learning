@@ -4,5 +4,5 @@ for num in range(len(numbers), 0, -1):
     revese.append(numbers[num])
 print(revese)
 
-for i in range(len(numbers) - 1, -1, -1):
+for i in range(len(numbers) - 1, -1, -1):   
     print(numbers[i])
