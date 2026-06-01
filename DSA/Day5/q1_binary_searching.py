@@ -15,6 +15,6 @@ def searching(arr, target):
 
 
 
-arr = [2, 5, 8, 12, 16, 23, 38]
-target = 5
+arr = [2,4,6,8,10,12,14]
+target = 2
 print(searching(arr, target))
