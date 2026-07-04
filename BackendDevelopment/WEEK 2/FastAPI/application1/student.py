@@ -19,6 +19,15 @@ class StudentUpdate(BaseModel):
     email: Optional[str] = None
     phone: Optional[str] = None
     address: Optional[AddressUpdate] = None
+
+class StudentResponse(BaseModel):
+    id: int
+    name: str
+    email: str
+
+class StudentPublic(BaseModel):
+    id: int
+    name: str
 class Student(BaseModel):
     id: int
     name: str
@@ -27,17 +36,19 @@ class Student(BaseModel):
     address: Address
     phone: Optional[str] = None
 
+@app.get("/students", response_model=List[StudentResponse])
+def student_response():
+    return students
 
-@app.post("/students")
+@app.get("/students/names", response_model=List[StudentPublic])
+def student_public():
+    return students
+@app.post(
+    "/students",
+    response_model=List[StudentResponse]
+)
 def create_users(new_users: List[Student]):
     students.extend(new_users)
-    return {
-        "students": students,
-        "message": f"{len(new_users)} users added"
-    }
-
-@app.get("/students") 
-def get_students():
     return students
 
 @app.get("/students/search")
